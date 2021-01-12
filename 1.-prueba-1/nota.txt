@@ -1,0 +1,58 @@
+1.-list => Convierte un cadena en un arreglo.
+            list(texto) => ['H','o','l','a']
+
+2.-lower() => Convierte un texto a minuscula
+                texto.lower() => hola
+
+3.-upper() => Convierte un texto a mayuscula.
+                texto.upper() => HOLA
+
+4.-str() => Convierte un numero a string.
+                str(5)
+
+5.-int() => Convierte de string a numero.
+            int(numero)
+
+
+1.-Join
+    https://blog.carreralinux.com.ar/2017/07/uso-split-y-join-python/
+
+2.-Reverse
+    https://www.programiz.com/python-programming/methods/list/reverse
+    
+3.-Split
+    https://blog.carreralinux.com.ar/2017/07/uso-split-y-join-python/
+    
+4.-Sort
+    https://www.programiz.com/python-programming/methods/list/sort
+
+5.-Reduce
+    https://ed.team/blog/metodos-funcionales-en-python
+
+6.-Filter
+    https://docs.hektorprofe.net/python/funcionalidades-avanzadas/funcion-filter/
+    en clases
+
+7.-Slice
+    http://elclubdelautodidacta.es/wp/2011/09/python-capitulo-18-creacion-de-sublistas/
+
+10.-Map
+    http://www.pythondiario.com/2017/10/programacion-funcional-lambda-map.html
+
+11.-Replace
+    https://www.w3schools.com/python/ref_string_replace.asp
+
+13.-Substring
+    https://www.codigopiton.com/como-hacer-substring-en-python/
+
+8.-Splice
+9.-Find
+12.-Concat
+
+
+random
+    https://www.mclibre.org/consultar/python/lecciones/python-biblioteca-random.html
+
+
+------------------------------
+1.-Cree una funcion que cuente numeros de caracteres pero sin los espacios
