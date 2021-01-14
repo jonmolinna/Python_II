@@ -74,3 +74,18 @@ def saludo_4(request):
     contexto = Context({"nombre_persona" : p1.nombre, "apellido_persona" : p1.apellido, "fecha" : fecha})
     documento = plantilla.render(contexto)
     return HttpResponse(documento)
+
+
+# --------  Bucles y condicionales en plantillas
+def saludo_5(request):
+    p1 = Persona("Jon", "Brehn")
+    temas = ["Plantillas", "Modelos", "Formularios", "Vistas", "Despliege"]
+
+    fecha = datetime.datetime.now()
+    doc_externo = open("C:/Users/USER/Desktop/Python_II/django1/django1/plantilla/plantilla4.html")
+    plantilla = Template(doc_externo.read())
+    doc_externo.close()
+    contexto = Context({"nombre_persona" : p1.nombre, "apellido_persona" : p1.apellido, "fecha" : fecha, 
+    "temas" : temas})
+    documento = plantilla.render(contexto)
+    return HttpResponse(documento)
