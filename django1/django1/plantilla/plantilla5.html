@@ -1,0 +1,30 @@
+<html>
+    <body>
+        <h2>Hola a todos estamos viendo el primer plantilla </h2>
+
+        {# Es una condicion de if y else #}
+
+        {% if nombre_persona == 'Jon Brehn' %}
+        <p>El curso lo imparte el prefesor titular</p>
+        {% else %}
+        <p>El curso lo imparte el profesor suplente</p>
+        {% endif %}
+    
+        <p>El nombre del usuario es: {{nombre_persona|upper}} {{apellido_persona.upper}}</p>
+        <p>La fecha es: {{fecha}}</p>
+        <p>La fecha es: {{fecha.day}}</p>
+        <p>La fecha es: {{fecha.day}} / {{fecha.month}} / {{fecha.year}}</p>
+        <p><strong>Temas del Curso:</strong></p>
+        <p>
+            <ul>
+                {% if temas %}
+                    {% for tema in temas %}
+                        <li>{{tema}}</li>
+                    {% endfor %}
+                {% else %}
+                    <p>No hay elementos que mostrar</p>
+                {% endif %}
+            </ul>
+        </p>
+    </body>
+</html>
