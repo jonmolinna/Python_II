@@ -54,7 +54,7 @@ ROOT_URLCONF = 'django1.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['C:/Users/USER/Desktop/Python_II/django1/django1/plantilla'], # Direcion de nuestra plantilla
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
