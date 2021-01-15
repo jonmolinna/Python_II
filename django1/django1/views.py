@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 import datetime
 from django.template import Template, Context
+from django.template.loader import get_template
 
 # ------ Creando URL y URL con Parametros
 
@@ -89,3 +90,21 @@ def saludo_5(request):
     "temas" : temas})
     documento = plantilla.render(contexto)
     return HttpResponse(documento)
+
+
+# Condicionales, filtros y cargadores de plantillas
+def saludo_6(request):
+    p1 = Persona("Jon", "Brehn")
+    temas = ["Plantillas", "Modelos", "Formularios", "Vistas", "Despliege"]
+
+    fecha = datetime.datetime.now()
+    #doc_externo = open("C:/Users/USER/Desktop/Python_II/django1/django1/plantilla/plantilla5.html")
+    #plantilla = Template(doc_externo.read())
+    #doc_externo.close()
+    doc_externo = get_template('plantilla5.html')
+    #contexto = Context({"nombre_persona" : p1.nombre, "apellido_persona" : p1.apellido, "fecha" : fecha, "temas" : temas})
+    documento = doc_externo.render({"nombre_persona" : p1.nombre, "apellido_persona" : p1.apellido, "fecha" : fecha, "temas" : temas})
+    return HttpResponse(documento)
+
+# mas infor => https://docs.djangoproject.com/en/3.1/ref/templates/builtins/
+# template filters
