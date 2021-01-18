@@ -2,6 +2,7 @@ from django.http import HttpResponse
 import datetime
 from django.template import Template, Context
 from django.template.loader import get_template
+from django.shortcuts import render
 
 # ------ Creando URL y URL con Parametros
 
@@ -108,3 +109,21 @@ def saludo_6(request):
 
 # mas infor => https://docs.djangoproject.com/en/3.1/ref/templates/builtins/
 # template filters
+
+
+# ---------------------- Plantillas incrustadas
+def saludo_7(request):
+    p1 = Persona("Jon", "Brehn")
+    temas = ["Plantillas", "Modelos", "Formularios", "Vistas", "Despliege"]
+    fecha = datetime.datetime.now()
+    return render(request, "plantilla6.html", {"nombre_persona" : p1.nombre, "apellido_persona" : p1.apellido, "fecha" : fecha, "temas" : temas})
+
+
+# ---------------------- Herencia de plantillas
+def hijo_1(request):
+    fecha = datetime.datetime.now()
+    return render(request, "hijo1.html", {"fecha" : fecha})
+
+def hijo_2(request):
+    fecha = datetime.datetime.now()
+    return render(request, "hijo2.html", {"fecha" : fecha})
