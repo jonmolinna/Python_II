@@ -1,0 +1,6 @@
+Crear un proyecto
+-----------------------
+django-admin startproject name-project
+cd name-project
+python manage.py migrate => crea un database sqlite3
+python manage.py runserver => para correr el servidor
