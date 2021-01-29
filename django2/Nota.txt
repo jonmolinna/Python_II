@@ -1,0 +1,118 @@
+Django con Sqlite
+------------------------------------
+
+Creando un Proyecto
+---------------------------
+-  django-admin startproject django2 (fuera de la carpeta, altura de django1)
+
+Creando un app
+------------------------------
+- python manage.py startapp gestionPedidos (se crea dentro del proyecto django2, al altura del archivo manage.py)
+
+Verificando la app
+--------------------------------
+- python manage.py check gestionPedidos
+
+Crea la BD y Crean un numero de transferencia
+---------------------------------------------------------
+- python manage.py makemigrations
+
+Creando Codigos de la tabla
+--------------------------------
+- python manage.py sqlmigrate gestionPedidos 0001
+
+Insertando el codigo creado a Sqlite
+-------------------------------------
+python manage.py migrate
+
+
+settings.py (INSTALLED_APPS) => se registran los apps
+
+
+Crud DataBase 
+-----------------------------------------
+python manage.py shell
+from gestionPedidos.models import Articulos
+
+art=Articulos(nombre='mesa', seccion='decoracion', precio=90)
+art.save()
+art2=Articulos(nombre='camisa', seccion='confeccion', precio=75)
+art2.save()
+art3=Articulos.objects.create(nombre='taladro', seccion='ferreteria', precio=65)
+
+art.precio=95
+art.save()
+
+art4=Articulos.objects.get(id=2)
+art4.delete()
+
+lista=Articulos.objects.all()
+lista
+lista.query.__str__()
+
+
+Django con PostgreSQL
+-------------------------------
+
+-  django-admin startproject django3 (fuera de la carpeta, altura de django1)
+
+- pip install psycopg2
+
+Se tiene que configurar en settings
+-----------------------------------------
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'articulosclientes',
+        'USER': 'postgres',
+        'PASSWORD': 'molina',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+}
+
+
+Para migrar la base de datos
+-----------------------------------------
+python manage.py makemigrations
+python manage.py migrate
+
+python manage.py shell
+from gestionPedidos.models import Clientes
+
+cli=Clientes(nombre='Brehn', direccion='mi casa', telefono='12345678')
+clie.save()
+
+Consulta con where
+---------------------------------------------
+python manage.py shell
+from gestionPedidos.models import Articulos
+Articulos.objects.filter(seccion='deportes')
+--> cualquier cambio debes hacer las migraciones
+exit()
+
+python manage.py makemigrations
+python manage.py migrate
+python manage.py shell
+from gestionPedidos.models import Articulos
+Articulos.objects.filter(seccion='deportes')
+
+Articulos.objects.filter(nombre='mesa', seccion='decoracion')
+Articulos.objects.filter(nombre='mesa', precio__gte=100) // precio sea mayor a 100
+Articulos.objects.filter(nombre='mesa', precio__lte=100) // precio sea menor a 100
+Articulos.objects.filter(precio__gte=50) 
+Articulos.objects.filter(precio__gte=50).order_by('precio')
+Articulos.objects.filter(precio__gte=50).order_by('-precio') // de mayor a menor
+
+
+Panel de Administración
+-------------------------------
+creando un superusario
+--------------------------
+python manage.py createsuperuser
+
+Para envio de email
+-----------------------------------
+python manage.py shell
+>>> from django.core.mail import send_mail
+>>> send_mail('Asunto', 'Mensaje', 'tu correo', ['correo destinatario'], fail_silently=False)
