@@ -1,0 +1,4 @@
+- django-admin startproject django3
+- cd django3
+- python manage.py startapp proyectowebapp
+- python manage.py runserver
