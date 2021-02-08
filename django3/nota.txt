@@ -2,3 +2,8 @@
 - cd django3
 - python manage.py startapp proyectowebapp
 - python manage.py runserver
+
+- python manage.py startapp servicios => creando un proyecto
+- pip install Pillow => para manejar los imagenes
+- python manage.py makemigrations => para verificar si esta bien
+- python manage.py migrate => para migrar el modelo a un base de datos sqlite
