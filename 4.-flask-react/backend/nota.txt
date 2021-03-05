@@ -1,0 +1,18 @@
+Creando un Entorno virtual
+------------------------------
+pip install virtualenv
+virtualenv venv => ejecutando le virtual
+
+abril otra consola activa el entorno virtual 
+.\venv\Scripts\activate.bat
+
+Instalando Modulos
+---------------------------------------------------------
+pip install flask
+pip install Flask-PyMongo
+pip install flask-cors
+
+
+Para correr el servidor
+-----------------------------------------------------------
+python src/app.py
